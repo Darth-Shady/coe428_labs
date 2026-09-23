@@ -1,0 +1,50 @@
+go to directory, run 
+make
+to get insertionSort and mergeSort executable.
+
+
+insertionSort analysis: ------------------------------------------------------------------------------------
+
+Worst case for swaps, see triangle -> n(n-1) / 2 , average case (half of triangle)
+
+1.) Insertion sort.
+Program runs without any bugs, however in the main file it seems that I have to enter n before integer elements when running the insertion sort file from the terminal.
+e.g.
+
+printf "5\n5\n4\n3\n2\n1\n" | ./insertionSort 
+ALTERNATIVELY:  printf "[whatever]" > test.txt | ./insertionSort < test.txt
+
+
+will run my program, but at the top line it will print n(num elements), then the sorted elements from least to greatest on every new line.
+
+Analysis of Insertion Sort: (n == num elements)
+Best - sorted array
+Comparisons - C(n) = n - 1, only needs to compare each element to it's predecessor
+Copy - M(n) = 2(n-1) , copy's one time per comparison to store key and place it back
+Swaps - S(n) = 0, this algorithm doesn't use swaps
+O(n) complexity
+
+Average - random array
+Comparisons - C(n) = n(n-1)/4, approximately halfway of the worst case
+Copy - M(n) = n(n-1)/4 + (n-1), every comparison results in a copy, + at the end of each pass copying the key
+Swaps - 0
+O(n^2) Complexity
+
+Worst - reverse sorted array
+Comparisons - C(n) = n(n-1)/2 , every pass (up to n-1 passes) there is a number of comparisons equal to the pass #
+Copy - M(n) = n(n-1)/2 + n-1, every comparison results in a copy + at the end of each pass copying the key
+Swaps - 0
+O(n^2) Complexity
+
+
+
+mergeSort analysis: ------------------------------------------------------------------------------------
+
+Code worked. Same caveat as calling insertionSort.
+
+Analysis:
+Best average and worst case are the same complexity
+comparisons - O(n*logn), logn (base 2) is the amount of layers to the merge (layers of the binary tree), n comparisons per level.
+
+copy - 2n*logn
+swaps - 0
